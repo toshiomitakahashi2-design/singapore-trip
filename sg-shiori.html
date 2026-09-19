@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>シンガポール 旅のしおり 9/20–22</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Zen+Maru+Gothic:wght@500;700&display=swap">
+<style>
+:root{
+  --ink:#1A1D1C; --ink-soft:#404B48; --ink-faint:#657069;
+  --paper:#F3F3F4; --paper-2:#E7E7EA; --card:#FFFFFF; --line:#D3D4D8;
+  --accent:#D2451F; --accent-soft:#FBE0D5; --deep:#0F857A; --deep-2:#0B6B62;
+  --on-deep:#FFFFFF; --on-deep-soft:#FBD9D2; --gold:#FFD166;
+  --sun:#FFD166; --sun-ink:#3E2900;
+  --brand:#C4302A; --brand-2:#9E231E;
+}
+:root:not([data-theme="light"]){
+  @media (prefers-color-scheme: dark){
+    --ink:#F4F4F4; --ink-soft:#D3D6D5; --ink-faint:#A4ABA8;
+    --paper:#1A1C1C; --paper-2:#242727; --card:#2C3030; --line:#434948;
+    --accent:#FF8A5C; --accent-soft:#4A2418; --on-deep:#FFFFFF;
+    --brand:#D8443C; --brand-2:#B0302A;
+  }
+}
+:root[data-theme="dark"]{
+  --ink:#F4F4F4; --ink-soft:#D3D6D5; --ink-faint:#A4ABA8;
+  --paper:#1A1C1C; --paper-2:#242727; --card:#2C3030; --line:#434948;
+  --accent:#FF8A5C; --accent-soft:#4A2418; --on-deep:#FFFFFF;
+  --brand:#D8443C; --brand-2:#B0302A;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--paper); color:var(--ink);
+  font-family:'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Hiragino Sans', sans-serif;
+  font-size:17.8px; line-height:1.75; -webkit-font-smoothing:antialiased;
+  padding-bottom:96px;
+}
+.wrap{max-width:820px;margin:0 auto;padding:0 18px}
+h1,h2,h3{font-family:'Zen Maru Gothic','Noto Sans JP',sans-serif;margin:0;line-height:1.3}
+p{margin:0}
+a{color:var(--accent)}
+
+/* header */
+header{background:var(--brand);color:var(--on-deep);padding:30px 0 24px;border-bottom:5px solid var(--sun)}
+.eyebrow{font-size:14.8px;letter-spacing:.2em;color:var(--sun);font-weight:700}
+header h1{font-size:36.3px;font-weight:700;margin-top:9px;color:var(--on-deep)}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:6px 14px;font-size:15.3px;color:#FFFFFF}
+.status{margin-top:16px;background:var(--sun);border-radius:16px;padding:13px 16px;font-size:16.8px;color:var(--sun-ink);display:flex;gap:10px;align-items:flex-start}
+.status b{color:#3A2600}
+
+/* tabs */
+nav.tabs{position:sticky;top:0;z-index:20;background:var(--paper);border-bottom:1px solid var(--line);overflow-x:auto;-webkit-overflow-scrolling:touch}
+nav.tabs .inner{display:flex;gap:4px;max-width:820px;margin:0 auto;padding:8px 14px 8px 14px}
+nav.tabs .inner:after{content:"";flex:0 0 8px}
+.tab{flex:0 0 auto;border:0;background:none;font:inherit;font-size:16.8px;font-weight:700;color:var(--ink-soft);padding:10px 15px;border-radius:999px;cursor:pointer;white-space:nowrap}
+.tab[aria-selected="true"]{background:var(--brand);color:#FFFFFF}
+
+section.panel{display:none;padding-top:22px}
+section.panel.active{display:block}
+
+/* timeline */
+.daylead{background:var(--paper-2);border:2px solid var(--accent);border-radius:18px;padding:16px 18px;margin-bottom:20px}
+.daylead h2{color:var(--accent)}
+.daylead h2{font-size:23.3px}
+.daylead p{font-size:16.3px;color:var(--ink-soft);margin-top:7px}
+
+.ev{position:relative;padding-left:94px;padding-bottom:22px}
+.ev:before{content:"";position:absolute;left:71px;top:26px;bottom:-4px;width:2px;background:var(--line)}
+.ev:last-child:before{display:none}
+.time{position:absolute;left:0;top:1px;width:56px;text-align:right;font-size:16.8px;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums;white-space:nowrap}
+.dot{position:absolute;left:66px;top:7px;width:12px;height:12px;border-radius:50%;background:var(--accent);border:3px solid var(--paper)}
+.ev.key .dot{width:16px;height:16px;left:64px;top:5px;background:var(--brand);border-color:var(--accent)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px 17px;box-shadow:0 2px 0 var(--line)}
+.ev.key .card{border-color:var(--accent);border-width:2px}
+.card h3{font-size:20.8px}
+.card .copy{font-size:16.8px;color:var(--ink-soft);margin-top:8px}
+.card .note{font-size:15.8px;margin-top:12px;background:var(--paper-2);border-radius:10px;padding:10px 12px;color:var(--ink)}
+.card .note b{color:var(--accent)}
+.photo{margin-top:12px;border-radius:12px;overflow:hidden;background:var(--paper-2)}
+.photo img{display:block;width:100%;height:auto;max-width:100%}
+.acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.act{font-size:15.3px;font-weight:700;text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:6px 12px;color:var(--ink)}
+.act.map{background:var(--deep);color:var(--on-deep);border-color:var(--deep)}
+.walk{font-size:14.8px;color:var(--ink-faint);margin-top:10px}
+
+/* lists */
+.block{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;margin-bottom:16px;box-shadow:0 2px 0 var(--line)}
+.block h2{font-size:22.3px;margin-bottom:5px}
+.block .sub{font-size:15.8px;color:var(--ink-soft);margin-bottom:14px}
+label.check{display:flex;gap:11px;align-items:flex-start;padding:11px 0;border-bottom:1px solid var(--line);cursor:pointer;font-size:17.3px}
+label.check:last-child{border-bottom:0}
+label.check input{width:21px;height:21px;margin-top:1px;accent-color:var(--accent);flex:0 0 auto}
+label.check .sm{display:block;font-size:15.3px;color:var(--ink-soft);margin-top:3px}
+label.check input:checked + span{color:var(--ink-faint);text-decoration:line-through}
+.prio{display:inline-block;font-size:13.8px;font-weight:700;background:#D62839;color:#FFFFFF;border-radius:6px;padding:1px 7px;margin-right:6px;vertical-align:1px}
+
+table{width:100%;border-collapse:collapse;font-size:16.8px}
+th,td{text-align:left;padding:9px 0;border-bottom:1px solid var(--line)}
+th{font-size:15.3px;color:var(--ink-soft);font-weight:700}
+td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.total td{border-bottom:0;padding-top:15px;font-weight:700;font-size:19.3px;color:var(--accent)}
+
+.tot{background:var(--brand);color:#FFFFFF;border-radius:18px;padding:20px;margin-bottom:16px}
+.tot .big{font-family:'Zen Maru Gothic',sans-serif;font-size:37.3px;font-weight:700;color:#fff;margin-top:5px}
+.tot p{font-size:15.8px;color:#FBE3DF;margin-top:9px}
+
+.reset{margin:8px 0 0;background:none;border:1px solid var(--line);color:var(--ink-soft);font:inherit;font-size:15.3px;border-radius:999px;padding:8px 15px;cursor:pointer}
+.mapbox{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px 14px 14px;margin-bottom:16px;box-shadow:0 2px 0 var(--line)}
+.mapbox h2{font-size:22.3px;padding:0 4px}
+.mapbox .sub{font-size:15.8px;color:var(--ink-soft);margin:5px 4px 12px}
+.mapbox svg{display:block;width:100%;height:auto;max-width:100%}
+.legend{display:flex;flex-wrap:wrap;gap:14px;margin-top:12px;padding:0 4px;font-size:15.3px;color:var(--ink-soft)}
+.legend i{display:inline-block;width:22px;height:4px;border-radius:2px;vertical-align:3px;margin-right:6px}
+.scroller{overflow-x:visible}
+footer{text-align:center;font-size:14.8px;color:var(--ink-soft);padding:28px 18px}
+@media(max-width:520px){
+  body{font-size:16px}
+  .wrap{padding:0 15px}
+  header{padding:22px 0 18px}
+  header h1{font-size:27px;margin-top:6px}
+  .eyebrow{font-size:11.5px;letter-spacing:.16em}
+  .meta{gap:7px;margin-top:11px}
+  .chip{font-size:12.5px;padding:5px 11px}
+  .status{font-size:14px;padding:12px 14px;margin-top:13px;border-radius:14px}
+  nav.tabs .inner{padding:7px 12px}
+  .tab{font-size:14px;padding:8px 12px}
+  .daylead{padding:14px 15px}
+  .daylead h2{font-size:19.5px}
+  .daylead p{font-size:14px}
+  .ev{padding-left:74px;padding-bottom:18px}
+  .time{width:44px;font-size:14.5px}
+  .ev:before{left:55px}
+  .dot{left:50px}
+  .ev.key .dot{left:48px}
+  .card{padding:14px 15px;border-radius:16px}
+  .card h3{font-size:17.5px}
+  .card .copy{font-size:14.5px}
+  .card .note{font-size:13.5px;padding:9px 11px}
+  .act{font-size:13px;padding:6px 11px}
+  .walk{font-size:12.5px}
+  .block{padding:16px;border-radius:16px}
+  .block h2{font-size:19px}
+  .block .sub{font-size:13.5px}
+  label.check{font-size:14.5px;padding:10px 0}
+  label.check .sm{font-size:13px}
+  table{font-size:14px}
+  th{font-size:13px}
+  tr.total td{font-size:16px}
+  .tot{padding:17px}
+  .tot .big{font-size:30px}
+  .tot p{font-size:13.5px}
+  .mapbox{padding:14px 12px 12px}
+  .mapbox h2{font-size:19px}
+  .mapbox .sub{font-size:13.5px}
+  .legend{font-size:13px;gap:10px}
+  footer{font-size:12.5px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <p class="eyebrow">FAMILY TRIP TO SINGAPORE</p>
+    <h1>シンガポール<br>旅のしおり</h1>
+    <div class="meta">
+      <span class="chip">2026.9/20（日）→ 22（火）</span>
+      <span class="chip">大人2・中2・小2</span>
+      <span class="chip">ブリス ホテル（チャイナタウン駅前）</span>
+    </div>
+    <div class="status" id="status"></div>
+  </div>
+</header>
+
+<nav class="tabs">
+  <div class="inner" role="tablist">
+    <button class="tab" role="tab" data-panel="d1">9/20 日</button>
+    <button class="tab" role="tab" data-panel="d2">9/21 月</button>
+    <button class="tab" role="tab" data-panel="d3">9/22 火</button>
+    <button class="tab" role="tab" data-panel="prep">予約</button>
+    <button class="tab" role="tab" data-panel="money">費用</button>
+    <button class="tab" role="tab" data-panel="info">地図</button>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<!-- DAY 1 -->
+<section class="panel" id="d1">
+  <div class="daylead">
+    <h2>着いた日から、もう旅は始まっとる</h2>
+    <p>16:25着陸 → 17:45ホテル → 赤い街 → ホテル前の屋台ビル → 屋内の滝 → 光る樹。移動を最小にして、夜のガーデンズに全部を寄せる。</p>
+  </div>
+  <div id="d1-list"></div>
+</section>
+
+<!-- DAY 2 -->
+<section class="panel" id="d2">
+  <div class="daylead">
+    <h2>午前は動物、午後は昼寝、夜は空から</h2>
+    <p>体感36℃の午後を捨てて、夜を全部取りにいく一日。サンパン（地下の水）→ ヘリックス橋（地上）→ フライヤー（165mの空）で日没をまたぐ。</p>
+  </div>
+  <div id="d2-list"></div>
+</section>
+
+<!-- DAY 3 -->
+<section class="panel" id="d3">
+  <div class="daylead">
+    <h2>最後まで、段取りよく</h2>
+    <p>8:40発。オンラインチェックインを前夜に済ませて、2時間前の6:40着で組んである。6時以降に出るのでタクシーの深夜割増もかからない。</p>
+  </div>
+  <div id="d3-list"></div>
+</section>
+
+<!-- PREP -->
+<section class="panel" id="prep">
+  <div class="block">
+    <h2>事前に予約するもの</h2>
+    <p class="sub">この4つだけ。ほかは当日でいける。</p>
+    <div id="book-list"></div>
+  </div>
+  <div class="block">
+    <h2>持ち物・忘れがち</h2>
+    <p class="sub">チェックは自動で保存される。</p>
+    <div id="pack-list"></div>
+    <button class="reset" id="reset">チェックを全部リセット</button>
+  </div>
+  <div class="block">
+    <h2>押したときに捨てる順番</h2>
+    <p class="sub">旅先で悩む時間そのものが体力を削るので、先に決めておく。</p>
+    <table>
+      <tr><th>状況</th><th>捨てるもの</th></tr>
+      <tr><td>初日が押した</td><td>フラワードーム</td></tr>
+      <tr><td>21日が押した</td><td>サンパン・ボートライド</td></tr>
+      <tr><td>どれだけ押しても</td><td><b>フライヤーは死守</b>（時間指定券）</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- MONEY -->
+<section class="panel" id="money">
+  <div class="tot">
+    <p class="eyebrow" style="color:var(--gold)">現地で使うお金 ／ 4人合計</p>
+    <p class="big">約 108,200 円</p>
+    <p>航空券・宿泊費・おみやげは別。現地用に13万円みておけば余裕。S$1 ≒ 122円で換算。</p>
+  </div>
+  <div class="block">
+    <h2>チケット</h2>
+    <p class="sub">中2は全施設で大人料金（子ども料金は3〜12歳）</p>
+    <table>
+      <tr><td>動物園 入園</td><td class="num">22,100円</td></tr>
+      <tr><td>フラワードーム＋クラウドフォレスト</td><td class="num">20,700円</td></tr>
+      <tr><td>シンガポール・フライヤー</td><td class="num">17,700円</td></tr>
+      <tr><td>サンパン・ボートライド</td><td class="num">5,200円</td></tr>
+      <tr class="total"><td>小計</td><td class="num">65,700円</td></tr>
+    </table>
+  </div>
+  <div class="block">
+    <h2>食事</h2>
+    <table>
+      <tr><td>20日 ピープルズ・パーク 夕食</td><td class="num">4,300円</td></tr>
+      <tr><td>21日 朝食</td><td class="num">3,000円</td></tr>
+      <tr><td>21日 松發肉骨茶 昼食</td><td class="num">6,000円</td></tr>
+      <tr><td>21日 グラットンズベイ 夕食</td><td class="num">7,300円</td></tr>
+      <tr class="total"><td>小計</td><td class="num">20,600円</td></tr>
+    </table>
+  </div>
+  <div class="block">
+    <h2>移動</h2>
+    <table>
+      <tr><td>空港 → ホテル（大型車）</td><td class="num">4,900円</td></tr>
+      <tr><td>ホテル ⇄ 動物園 往復</td><td class="num">10,000円</td></tr>
+      <tr><td>MRT 2日分・4人</td><td class="num">3,000円</td></tr>
+      <tr><td>ホテル → 空港（6:10発・割増なし）</td><td class="num">4,000円</td></tr>
+      <tr class="total"><td>小計</td><td class="num">21,900円</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- INFO -->
+<section class="panel" id="info">
+  <div class="mapbox">
+    <h2>① ブリス ホテル周辺</h2>
+    <p class="sub">DAY1の夕方はこの範囲だけ。すべて徒歩4分以内。</p>
+    <svg viewBox="0 0 440 520" role="img" aria-label="ブリス ホテル周辺の徒歩圏マップ。チャイナタウン駅の向かいにホテル、北西にピープルズ・パーク、北にチャイナタウン・ポイント、北東にホン・リム、南西にチャイナタウン・コンプレックス、南に仏牙寺がある。">
+      <rect x="0" y="0" width="440" height="520" fill="var(--paper-2)" rx="14"/>
+      <g stroke="var(--ink-faint)" fill="none" opacity="0.35" stroke-linecap="round">
+        <path d="M8 200 L432 200" stroke-width="13"/>
+        <path d="M150 8 L150 512" stroke-width="13"/>
+        <path d="M104 8 L104 512" stroke-width="9"/>
+        <path d="M212 8 L212 512" stroke-width="9"/>
+        <path d="M150 268 L212 268" stroke-width="7"/>
+        <path d="M104 310 L212 310" stroke-width="7"/>
+      </g>
+      <text x="14" y="194" font-size="14" fill="var(--ink-faint)">Upper Cross St</text>
+      <text x="156" y="262" font-size="13.5" fill="var(--ink-faint)">Pagoda St</text>
+      <text x="100" y="480" font-size="14" fill="var(--ink-faint)">New Bridge Rd</text>
+      <text x="222" y="480" font-size="14" fill="var(--ink-faint)">South Bridge Rd</text>
+
+      <circle cx="60" cy="132" r="12" fill="var(--accent)"/>
+      <text x="14" y="76" font-size="15.5" font-weight="700" fill="var(--ink)">ピープルズ・パーク</text>
+      <text x="14" y="94" font-size="13.5" fill="var(--ink-soft)">20日の夕食／徒歩3〜4分</text>
+      <text x="14" y="111" font-size="13.5" fill="var(--ink-soft)">22:30まで・月曜定休</text>
+
+      <circle cx="188" cy="132" r="10" fill="var(--deep)"/>
+      <text x="206" y="126" font-size="15.5" font-weight="700" fill="var(--ink)">松發肉骨茶</text>
+      <text x="206" y="144" font-size="13.5" fill="var(--ink-soft)">ポイント内／徒歩2分</text>
+
+      <circle cx="340" cy="150" r="9" fill="var(--ink-soft)"/>
+      <text x="276" y="172" font-size="14" fill="var(--ink-soft)">ホン・リム</text>
+      <text x="276" y="189" font-size="13" fill="var(--ink-faint)">昼向き・20時閉店</text>
+
+      <rect x="172" y="184" width="32" height="32" rx="9" fill="var(--accent)"/>
+      <text x="222" y="222" font-size="17" font-weight="700" fill="var(--ink)">ブリス ホテル</text>
+      <text x="222" y="242" font-size="13.5" fill="var(--ink-soft)">駅 Exit E の向かい</text>
+
+      <circle cx="108" cy="320" r="10" fill="var(--deep)"/>
+      <text x="126" y="346" font-size="14.5" fill="var(--ink-soft)">コンプレックス</text>
+      <text x="126" y="363" font-size="13" fill="var(--ink-faint)">徒歩4分</text>
+
+      <circle cx="206" cy="410" r="11" fill="var(--deep)"/>
+      <text x="226" y="408" font-size="15.5" font-weight="700" fill="var(--ink)">仏牙寺</text>
+      <text x="226" y="426" font-size="13.5" fill="var(--ink-soft)">徒歩4分／330m</text>
+
+      <path d="M406 60 L406 92" stroke="var(--ink-soft)" stroke-width="3"/>
+      <path d="M406 54 l-6 12 l12 0 Z" fill="var(--ink-soft)"/>
+      <text x="406" y="110" font-size="14" font-weight="700" fill="var(--ink-soft)" text-anchor="middle">N</text>
+      <line x1="310" y1="500" x2="370" y2="500" stroke="var(--ink-faint)" stroke-width="2"/>
+      <line x1="310" y1="494" x2="310" y2="506" stroke="var(--ink-faint)" stroke-width="2"/>
+      <line x1="370" y1="494" x2="370" y2="506" stroke="var(--ink-faint)" stroke-width="2"/>
+      <text x="340" y="490" font-size="13.5" fill="var(--ink-faint)" text-anchor="middle">100m</text>
+    </svg>
+    <p class="sub" style="margin:14px 4px 0">ここから <b>MRT（DT線）で東へ3駅・6分</b> → Bayfront駅。次の地図へ。</p>
+  </div>
+
+  <div class="mapbox">
+    <h2>② マリーナ湾</h2>
+    <p class="sub">DAY1の夜（緑）とDAY2の夜（オレンジ）。歩く範囲はこの1枚に収まる。</p>
+    <svg viewBox="0 0 600 560" role="img" aria-label="マリーナ湾周辺のマップ。湾を囲んでマーライオン公園、グラットンズベイ、フライヤー、ヘリックス橋、MBS、ガーデンズのドームとスーパーツリーが並び、南東にシンガポール海峡がある。">
+      <rect x="0" y="0" width="600" height="560" fill="var(--paper-2)" rx="14"/>
+      <path d="M600 400 L600 560 L350 560 Q470 520 548 452 Q582 428 600 400 Z" fill="var(--deep)" opacity="0.3"/>
+      <text x="486" y="522" font-size="14.5" font-weight="700" fill="var(--deep)" text-anchor="middle">シンガポール海峡</text>
+
+      <path d="M140 227 Q152 184 180 162 Q222 176 324 306 Q302 402 234 468 Q170 472 144 450 Q124 332 140 227 Z" fill="var(--deep)" opacity="0.2"/>
+      <text x="212" y="330" font-size="17" font-weight="700" fill="var(--deep)" opacity="0.9" text-anchor="middle">マリーナ湾</text>
+
+      <g stroke="var(--ink-faint)" fill="none" opacity="0.4" stroke-linecap="round">
+        <path d="M0 336 L36 324 L140 227 L180 162" stroke-width="7"/>
+        <path d="M180 162 L300 120 L460 118 L512 148" stroke-width="7"/>
+        <path d="M234 468 L324 381 L400 332 L470 302 L540 296 L580 340" stroke-width="7"/>
+        <path d="M36 324 L20 420 L120 486 L234 468" stroke-width="6"/>
+      </g>
+      <path d="M0 192 L60 202 L140 227" stroke="var(--deep)" stroke-width="8" fill="none" opacity="0.5" stroke-linecap="round"/>
+      <text x="16" y="186" font-size="13.5" font-weight="700" fill="var(--deep)">シンガポール川</text>
+      <text x="300" y="112" font-size="13.5" fill="var(--ink-faint)">Raffles Ave</text>
+      <text x="446" y="296" font-size="13.5" fill="var(--ink-faint)">Bayfront Ave</text>
+
+      <polyline points="324,381 558,328 482,396" fill="none" stroke="var(--deep)" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+      <polyline points="313,335 364,198 454,133 230,130 140,227" fill="none" stroke="var(--accent)" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+
+      <rect x="28" y="316" width="16" height="16" rx="4" fill="var(--ink-soft)" transform="rotate(45 36 324)"/>
+      <text x="16" y="356" font-size="13.5" fill="var(--ink-soft)">Raffles Place駅</text>
+      <circle cx="324" cy="381" r="9" fill="var(--deep)"/>
+      <text x="336" y="404" font-size="13.5" fill="var(--ink-soft)">Bayfront駅</text>
+
+      <circle cx="558" cy="328" r="11" fill="var(--deep)"/>
+      <text x="548" y="306" font-size="15.5" font-weight="700" fill="var(--ink)" text-anchor="end">2つのドーム</text>
+      <circle cx="482" cy="396" r="11" fill="var(--deep)"/>
+      <text x="498" y="424" font-size="15.5" font-weight="700" fill="var(--ink)" text-anchor="end">スーパーツリー</text>
+
+      <circle cx="313" cy="335" r="11" fill="var(--accent)"/>
+      <text x="300" y="352" font-size="15.5" font-weight="700" fill="var(--ink)" text-anchor="end">MBS／サンパン</text>
+      <circle cx="364" cy="198" r="11" fill="var(--accent)"/>
+      <text x="382" y="196" font-size="15.5" font-weight="700" fill="var(--ink)">ヘリックス橋</text>
+      <circle cx="454" cy="133" r="12" fill="var(--accent)"/>
+      <text x="472" y="128" font-size="16" font-weight="700" fill="var(--ink)">フライヤー</text>
+      <circle cx="230" cy="130" r="11" fill="var(--accent)"/>
+      <text x="230" y="108" font-size="15.5" font-weight="700" fill="var(--ink)" text-anchor="middle">グラットンズベイ</text>
+      <circle cx="140" cy="227" r="11" fill="var(--accent)"/>
+      <text x="124" y="248" font-size="15.5" font-weight="700" fill="var(--ink)" text-anchor="end">マーライオン</text>
+
+      <text x="346" y="272" font-size="13.5" fill="var(--ink-faint)">450m</text>
+      <text x="420" y="176" font-size="13.5" fill="var(--ink-faint)">550m</text>
+      <text x="340" y="126" font-size="13.5" fill="var(--ink-faint)">1.0km</text>
+      <text x="164" y="176" font-size="13.5" fill="var(--ink-faint)">800m</text>
+
+      <path d="M40 60 L40 96" stroke="var(--ink-soft)" stroke-width="3"/>
+      <path d="M40 52 l-7 14 l14 0 Z" fill="var(--ink-soft)"/>
+      <text x="40" y="116" font-size="14" font-weight="700" fill="var(--ink-soft)" text-anchor="middle">N</text>
+      <line x1="420" y1="536" x2="600" y2="536" stroke="var(--ink-faint)" stroke-width="2" opacity="0"/>
+      <line x1="60" y1="524" x2="240" y2="524" stroke="var(--ink-faint)" stroke-width="2"/>
+      <line x1="60" y1="518" x2="60" y2="530" stroke="var(--ink-faint)" stroke-width="2"/>
+      <line x1="240" y1="518" x2="240" y2="530" stroke="var(--ink-faint)" stroke-width="2"/>
+      <text x="150" y="514" font-size="13.5" fill="var(--ink-faint)" text-anchor="middle">500m</text>
+    </svg>
+    <div class="legend">
+      <span><i style="background:var(--deep)"></i>DAY1・ガーデンズ</span>
+      <span><i style="background:var(--accent)"></i>DAY2夜・湾ウォーク</span>
+      <span><i style="background:var(--ink-faint);opacity:.45"></i>主要道路</span>
+    </div>
+  </div>
+  <div class="block">
+    <h2>車が要るのは3回だけ</h2>
+    <table>
+      <tr><td>空港 → ホテル</td><td class="num">25分</td></tr>
+      <tr><td>ホテル ⇄ 動物園</td><td class="num">30〜35分</td></tr>
+      <tr><td>ホテル → 空港（6:10発）</td><td class="num">25分</td></tr>
+    </table>
+  </div>
+  <div class="block">
+    <h2>ブリス ホテルから</h2>
+    <p class="sub">62 Upper Cross St。チャイナタウン駅 Exit E の真向かい。</p>
+    <table>
+      <tr><td>チャイナタウン駅 Exit E</td><td class="num">徒歩1分／道の向かい</td></tr>
+      <tr><td>松發肉骨茶（チャイナタウン・ポイント内）</td><td class="num">徒歩2分／道の向かい</td></tr>
+      <tr><td><b>ピープルズ・パーク</b>（20日の夕食）</td><td class="num">徒歩3〜4分／210m</td></tr>
+      <tr><td>ホン・リム（昼向き・20時閉店）</td><td class="num">徒歩3分／190m</td></tr>
+      <tr><td>チャイナタウン・コンプレックス</td><td class="num">徒歩4分／260m</td></tr>
+      <tr><td>仏牙寺</td><td class="num">徒歩4分／330m</td></tr>
+    </table>
+    <p class="sub" style="margin:12px 4px 0">ホン・リムは13:30過ぎに売り切れる店が多い昼の場所。ピープルズ・パークは22:30まで開いているが<b>月曜定休</b>。</p>
+  </div>
+  <div class="block">
+    <h2>21日の夜はぜんぶ徒歩</h2>
+    <p class="sub">合計2.8km・約45分。長いのはフライヤー→夕食の1.0kmだけ。</p>
+    <table>
+      <tr><td>MBS → ヘリックス橋</td><td class="num">5分／450m</td></tr>
+      <tr><td>ヘリックス橋 → フライヤー</td><td class="num">7分／550m</td></tr>
+      <tr><td>フライヤー → グラットンズベイ</td><td class="num">15分／1.0km</td></tr>
+      <tr><td>グラットンズベイ → マーライオン</td><td class="num">10分／800m</td></tr>
+    </table>
+  </div>
+  <div class="block">
+    <h2>覚えとくこと</h2>
+    <table>
+      <tr><td>仏牙寺の拝観</td><td class="num">17時まで</td></tr>
+      <tr><td>フラワードーム最終入場</td><td class="num">20:00</td></tr>
+      <tr><td>アー・メン朝食</td><td class="num">今回はパス</td></tr>
+      <tr><td>天天海南鶏飯</td><td class="num">月曜定休</td></tr>
+      <tr><td>タクシー深夜割増</td><td class="num">0〜6時は5割増</td></tr>
+      <tr><td>9/21の日没</td><td class="num">19:03</td></tr>
+    </table>
+  </div>
+</section>
+
+</main>
+
+<footer>写真はあとから差し込めます。<br>くろちゃん調べ・2026年9月</footer>
+
+<script>
+const G = q => "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(q);
+
+const DAYS = {
+  "d1-list": [
+    {t:"16:25", h:"チャンギ空港 着陸", copy:"入国は自動化ゲートで速い。荷物ピックアップまで含めて17:05には出られる。", note:"<b>SIM／eSIM</b>はここで確保。Grabは6人乗りを呼ぶ（荷物4つ＋4人）。", map:"Changi Airport Singapore"},
+    {t:"17:45", h:"ブリス ホテル 着・荷物を置く", copy:"62 Upper Cross St。チャイナタウン駅 Exit E の真向かいで、道を渡ればチャイナタウン・ポイント（松發が入っているモール）。", note:"ここから先はほぼ徒歩とMRTで済む。車が要るのは動物園と空港だけ。", map:"Bliss Hotel Singapore 62 Upper Cross St", walk:"空港から20km・約25分"},
+    {t:"18:00", h:"赤に、飛び込む。", copy:"徒歩3分でパゴダ・ストリート。提灯と看板と匂いが一度に来る。着いて30分で「アジアに来た」が完成する。", note:"仏牙寺は<b>拝観17時まで</b>。中は入れないが夜の外観ライトアップは十分きれい。", map:"Buddha Tooth Relic Temple Singapore", walk:"ホテルから徒歩4分・330m"},
+    {t:"18:20", h:"ホテルの前で、200軒から選ぶ。", copy:"ピープルズ・パーク・フードセンター（32 New Market Rd）。徒歩3〜4分のローカル濃度の高い屋台ビル。1皿400〜800円。", note:"<b>多くの店が現金のみ</b>。席を先に確保してから買いに行く（ティッシュを置いたら予約成立）。営業22:30まで、日曜は開いている。", map:"People's Park Food Centre 32 New Market Road Singapore", walk:"ホテルから徒歩3〜4分・210m"},
+    {t:"18:45", h:"MRTで Bayfront へ", copy:"チャイナタウン駅からDT線で直通3駅・6分。4人で約200円。"},
+    {t:"19:00", h:"フラワードーム（45分）", key:true, copy:"世界最大級のガラス温室。バオバブとサボテンのエリアが見どころ。平面を回るだけなので45分で足りる。", note:"<b>最終入場20:00</b>。19:40には入口に。押したときはここを捨てる。", map:"Flower Dome Gardens by the Bay", walk:"Bayfront駅から徒歩5分"},
+    {t:"19:45", h:"高さ35mの滝が、屋内にある。", key:true, copy:"クラウドフォレスト。エレベーターで最上階へ上がり、降りながら滝を見上げる一方通行。冷房と霧で機内の疲れが飛ぶ。", note:"出口を出たらそのままスーパーツリーへ直行できる。", map:"Cloud Forest Gardens by the Bay", walk:"フラワードームから徒歩1分（隣）"},
+    {t:"20:45", h:"光る樹の下で、寝転ぶ。", copy:"ガーデン・ラプソディ。最大50mのスーパーツリーが音楽に合わせて光る15分。無料。", note:"立って見上げるのではなく<b>芝生に仰向け</b>が正しい見方。", map:"Supertree Grove Gardens by the Bay", walk:"徒歩3分・250m"},
+    {t:"21:15", h:"ホテルへ", copy:"MRTで6分。明日は8時出発なので早めに寝る。"}
+  ],
+  "d2-list": [
+    {t:"8:00", h:"Grabで出発", copy:"北へ25km。渋滞を考えても30〜35分で着く。", note:"朝食はホテルか園内で軽く。オランウータンとの朝食は今回パス。"},
+    {t:"8:30", h:"檻のない動物園へ、開園ダッシュ。", key:true, copy:"堀と植栽で仕切る開放型なので、視界に檻が入らない。園内は無料トラムで小2の体力を温存。", note:"<b>10時を過ぎるとダレる</b>。この旅で唯一「絶対に動かせない時刻」。", map:"Singapore Zoo"},
+    {t:"12:30", h:"Grabでホテル方面へ", copy:"暑さのピークが来る前に引き上げる。"},
+    {t:"13:10", h:"白胡椒のスープが、汗を引かせる。", copy:"松發肉骨茶（Chinatown Point店・駅直結）。骨付き豚バラのスープはおかわり自由。ミシュラン・ビブグルマン。", note:"小2には<b>油条を浸して</b>食べさせると食べやすい。豆苗炒めを足せば野菜も取れる。混んでもモール内のエアコンで並べる。", map:"Song Fa Bak Kut Teh Chinatown Point"},
+    {t:"14:00", h:"寝る。堂々と寝る。", key:true, copy:"体感36℃の午後を捨てて、夜を全部取りにいく。腹いっぱいで昼寝、という流れがいちばん効く。", note:"削ると夕方に倍返しされる。この2時間が夜の湾ウォークの質を決める。"},
+    {t:"16:45", h:"MRTで Bayfront へ", copy:"チャイナタウンから直通3駅・6分。"},
+    {t:"17:15", h:"MBSショップスを散策", copy:"駅直結。サンパンの受付を確認しつつ、館内をぶらっと。"},
+    {t:"18:00", h:"モールの地下を、舟で行く。", copy:"サンパン・ボートライド、10分。直径22mのアクリルの鉢「レイン・オキュラス」の真下を回る。", note:"<b>毎正時に毎分22,000リットル</b>の水が滝になって落ちる。18:00ちょうどに乗るため17:50には並ぶ。", map:"The Shoppes at Marina Bay Sands"},
+    {t:"18:25", h:"DNAの橋を、渡る。", copy:"ヘリックス橋。二重らせんをそのまま構造にした全長280mの歩道橋。夜はブルーとピンクに光る。", map:"Helix Bridge Singapore", walk:"MBSから徒歩5分・450m"},
+    {t:"18:45", h:"165mの空で、日が沈む。", key:true, copy:"シンガポール・フライヤー。完全個室のゴンドラで1周30分。空がオレンジ、紺、夜景と変わるのを涼しい箱の中から。", note:"<b>18:30には受付へ。</b>搭乗前の展示ゾーンが時間を食う。時間指定券なので死守。日没は19:03。", map:"Singapore Flyer", walk:"徒歩7分・550m"},
+    {t:"19:35", h:"席に座ったまま、ショーが始まる。", copy:"マカンスートラ・グラットンズベイ。湾に面した屋外ホーカーで、サテー、チリクラブ、ホッケンミー。", note:"<b>20:00のSpectra</b>（MBS前の光と噴水のショー、約15分）が食べている席から対岸に見える。無料。", map:"Makansutra Gluttons Bay Singapore", walk:"徒歩15分・1.0km"},
+    {t:"20:30", h:"最後に、夜のマーライオン。", copy:"完全に日が落ちて、MBSも全点灯した状態。昼間より確実に写真がきれい。", note:"「水を飲む写真」は<b>しゃがんで下から</b>。Raffles Place駅が目の前。", map:"Merlion Park Singapore", walk:"徒歩10分・800m"},
+    {t:"21:00", h:"ホテルへ", copy:"Raffles Place駅から1駅3分。明日は5:15起き。", note:"寝る前に<b>フロントで翌朝5:50のタクシーを手配</b>。これが一番忘れやすい。"}
+  ],
+  "d3-list": [
+    {t:"5:45", h:"起床・最終パッキング", copy:"荷造りは前夜に終わらせておく。", note:"<b>オンラインチェックインは前夜に</b>済ませておく。当日は荷物を預けるだけになる。"},
+    {t:"6:10", h:"ホテル出発", key:true, copy:"タクシーで20km・約25分。", note:"<b>6時を過ぎてから出るのがコツ。</b>深夜割増（0〜6時は5割増）がかからず、1,000円ほど安くなる。"},
+    {t:"6:40", h:"チャンギ到着（2時間前）", copy:"オンラインチェックイン済みなら、あとは手荷物を預けるだけ。", note:"MRTは始発が5:50頃で、乗り継ぎ＋荷物4つでは<b>間に合わない</b>。タクシー一択。", map:"Changi Airport Singapore"},
+    {t:"7:10", h:"保安・出国", copy:"ジュエルの滝は制限エリア外。寄るならこの前に10分だけ。"},
+    {t:"8:40", h:"出発 ✈", copy:"おつかれさまでした。"}
+  ]
+};
+
+const BOOK = [
+  {id:"bk-flyer", prio:"最重要", t:"シンガポール・フライヤー", sm:"18:30〜18:45の枠を時間指定で。日没19:03に合わせる設計なのでここがズレると全部ズレる"},
+  {id:"bk-zoo", t:"動物園の入園券", sm:"窓口の列を回避。8:30の開園ダッシュが効かなくなる"},
+  {id:"bk-dome", t:"フラワードーム＋クラウドフォレスト", sm:"セット販売。当日券もあるが並ぶ"},
+  {id:"bk-sampan", t:"サンパン・ボートライド", sm:"当日窓口でも買えるが事前のほうが少し安い"}
+];
+
+const PACK = [
+  {id:"pk-sim", t:"空港でSIM／eSIM", sm:"Grab配車にもネットが要る"},
+  {id:"pk-cash", t:"少額の現金", sm:"屋台は現金かPayNow"},
+  {id:"pk-layer", t:"羽織るもの1枚ずつ", sm:"ドーム内と店内は冷房が強い"},
+  {id:"pk-taxi", t:"21日の夜にタクシー手配", sm:"ホテルのフロントで翌朝6:10"},
+  {id:"pk-checkin", t:"オンラインチェックイン", sm:"前夜に済ませておけば当日は荷物を預けるだけ"},
+  {id:"pk-shoes", t:"歩ける靴", sm:"21日の夜だけで2.8km歩く"},
+  {id:"pk-water", t:"水筒か買った水", sm:"体感36℃。こまめに"}
+];
+
+function evHTML(e){
+  let acts = "";
+  if(e.map) acts += '<a class="act map" target="_blank" rel="noopener" href="'+G(e.map)+'">地図を開く</a>';
+  return '<div class="ev'+(e.key?' key':'')+'">'
+    + '<div class="time">'+e.t+'</div><div class="dot"></div>'
+    + '<div class="card">'
+    + '<h3>'+e.h+'</h3>'
+    + (e.copy?'<p class="copy">'+e.copy+'</p>':'')
+    + (e.photo?'<div class="photo"><img src="'+e.photo+'" alt="'+e.h+'"></div>':'')
+    + (e.note?'<p class="note">'+e.note+'</p>':'')
+    + (acts?'<div class="acts">'+acts+'</div>':'')
+    + (e.walk?'<p class="walk">'+e.walk+'</p>':'')
+    + '</div></div>';
+}
+for(const id in DAYS){
+  const el = document.getElementById(id);
+  if(el) el.innerHTML = DAYS[id].map(evHTML).join("");
+}
+
+function checkHTML(x){
+  return '<label class="check"><input type="checkbox" id="'+x.id+'"><span>'
+    + (x.prio?'<span class="prio">'+x.prio+'</span>':'') + x.t
+    + (x.sm?'<span class="sm">'+x.sm+'</span>':'') + '</span></label>';
+}
+document.getElementById("book-list").innerHTML = BOOK.map(checkHTML).join("");
+document.getElementById("pack-list").innerHTML = PACK.map(checkHTML).join("");
+
+/* checkbox persistence */
+const KEY = "sg-shiori-checks";
+function loadChecks(){
+  let saved = {};
+  try{ saved = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; }catch(e){ saved = {}; }
+  document.querySelectorAll('.check input').forEach(cb=>{
+    cb.checked = !!saved[cb.id];
+    cb.addEventListener("change", saveChecks);
+  });
+}
+function saveChecks(){
+  const o = {};
+  document.querySelectorAll('.check input').forEach(cb=>{ if(cb.checked) o[cb.id]=1; });
+  try{ localStorage.setItem(KEY, JSON.stringify(o)); }catch(e){}
+}
+loadChecks();
+document.getElementById("reset").addEventListener("click", ()=>{
+  document.querySelectorAll('.check input').forEach(cb=>cb.checked=false);
+  saveChecks();
+});
+
+/* tabs */
+const tabs = [...document.querySelectorAll('.tab')];
+const panels = [...document.querySelectorAll('.panel')];
+function show(id){
+  tabs.forEach(t=>t.setAttribute("aria-selected", String(t.dataset.panel===id)));
+  panels.forEach(p=>p.classList.toggle("active", p.id===id));
+  try{ localStorage.setItem("sg-shiori-tab", id); }catch(e){}
+}
+tabs.forEach(t=>t.addEventListener("click", ()=>{ show(t.dataset.panel); window.scrollTo({top:0,behavior:"smooth"}); }));
+
+/* status line + default tab */
+(function(){
+  const now = new Date();
+  const sgNow = new Date(now.getTime() + (now.getTimezoneOffset()*60000) + (8*3600000));
+  const y = sgNow.getFullYear(), m = sgNow.getMonth(), d = sgNow.getDate();
+  const start = new Date(2026,8,20), end = new Date(2026,8,22);
+  const today = new Date(y,m,d);
+  const diff = Math.round((start - today)/86400000);
+  const st = document.getElementById("status");
+  let msg, tab = "d1";
+  if(today.getTime() === start.getTime()){ msg = "<span>🛬</span><div><b>今日は出発日。</b>16:25着陸、17:45ホテル。19:00のフラワードームが最初の関門。</div>"; tab="d1"; }
+  else if(today.getTime() === new Date(2026,8,21).getTime()){ msg = "<span>🎡</span><div><b>今日がメインの一日。</b>8:30の開園ダッシュと、18:30のフライヤー受付。</div>"; tab="d2"; }
+  else if(today.getTime() === end.getTime()){ msg = "<span>✈</span><div><b>帰国日。</b>6:10出発、6:40着、8:40発。フロントのタクシーを確認。</div>"; tab="d3"; }
+  else if(diff > 0){ msg = "<span>🗓</span><div><b>出発まであと "+diff+" 日。</b>予約は4つだけ。フライヤーの時間枠を先に押さえて。</div>"; tab = diff<=3 ? "prep" : "d1"; }
+  else { msg = "<span>🦁</span><div><b>おかえりなさい。</b>写真を差し込めば、そのまま旅の記録になります。</div>"; tab="d1"; }
+  st.innerHTML = msg;
+  let saved = null;
+  try{ saved = localStorage.getItem("sg-shiori-tab"); }catch(e){}
+  show(saved && document.getElementById(saved) ? saved : tab);
+})();
+</script>
+</body>
+</html>
